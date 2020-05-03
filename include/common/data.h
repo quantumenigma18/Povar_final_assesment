@@ -9,116 +9,48 @@
  *
  *****************************************************************************/
 /**
- * @file stats.h
- * @brief Assigment1
+ * @file data.h
+ * @brief Assigment4
  *
  * <Header file>
  *
  * @author Tetiana Povar
- * @date 01.05.2020
+ * @date 04.05.2020
  *
  */
 #ifndef __STATS_H__
 #define __STATS_H__
 
 /* Add Your Declarations and Function Comments here */
-
-
 /**
- * @brief <Print the statistics of the array to the screan >
+ * @brief onvert data from a standard integer type into an ASCII string.
  *
- * <Print  Median,Meam, Max, Min of the array>
+ * Integer-to-ASCII needs to convert data from a standard integer type into an ASCII string.All operations need to be performed using pointer arithmetic, not array indexing.The number you wish to convert is passed in as a signed 32-bit integer. You should be able to support bases 2 to 16 by specifying the integer value of the base you wish to convert to (base). Copy the converted character string to the uint8_t* pointer passed in as a parameter (ptr). The signed 32-bit number will have a maximum string size (Hint: Think base 2).You must place a null terminator at the end of the converted c-string.
  *
- * @param <array> <pointer to the array>
- * @param <Add InputName> <length of the array>
+ * @param data 32-bit integer of data array
+ * @param ptr 8-bit pointer.
+ * @param base bases 2 to 16
  *
- *
- * @return <void>
+ * @return length of the string
  */
-void print_statistics(unsigned char *array, unsigned int length);
+
+
+
+uint8_t my_itoa(int32_t data, uint8_t * ptr, uint32_t base);
 /**
- * @brief <Print the array to the screan>
+ * @brief convert data back from an ASCII represented string into an integer type.
  *
- * <Print the array to the screan>
+ * 
+ *ASCII-to-Integer needs to convert data back from an ASCII represented string into an integer type.All operations need to be performed using pointer arithmetic, not array indexing
  *
- * @param <array> <pointer to the array>
- * @param <Add InputName> <length of the array>
+ * @param ptr 8-bit pointer.
+ * @param digits 32-bit integer
+ * @param base bases 2 to 16
  *
- *
- * @return <void>
+ * @return data 32-bit integer of data array
  */
-void print_array(unsigned char *array, unsigned int length);
 
-/**
- * @brief <Sort the array from largest to smallest>
- *
- * <Sorts the array from largest to smallest>
- *
- * @param <array> <pointer to the array>
- * @param <Add InputName> <length of the array>
- *
- *
- * @return <void>
- */
-void sort_array(unsigned char *array, unsigned int length);
-
-/**
- * @brief <Find median of the array>
- *
- * <Find median of the array>
- *
- * @param <array> <pointer to the array>
- * @param <Add InputName> <length of the array>
- *
- *
- * @return <value of median>
- */
-int find_median(unsigned char *array, unsigned int length);
-
-/**
- * @brief <Find mean of the array>
- *
- * <Find mean of the array>
- *
- * @param <array> <pointer to the array>
- * @param <Add InputName> <length of the array>
- *
- *
- * @return <value of meam>
- */
-int find_mean(unsigned char *array, unsigned int length);
-
-/**
- * @brief <Find maximum of the array>
- *
- * <Find maximum of the array>
- *
- * @param <array> <pointer to the array>
- * @param <Add InputName> <length of the array>
- *
- *
- * @return <value of maximum>
- */
-int find_maximum(unsigned char *array, unsigned int length);
-
-/**
- * @brief <Find minimum of the array>
- *
- * <Find minimum of the array>
- *
- * @param <array> <pointer to the array>
- * @param <Add InputName> <length of the array>
- *
- *
- * @return <value of minimum>
- */
-int find_minimum(unsigned char *array, unsigned int length);
-
-
-
-
-
-
+int32_t my_atoi(uint8_t * ptr, uint8_t digits, uint32_t base);
 
 
 #endif /* __STATS_H__ */

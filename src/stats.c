@@ -23,6 +23,7 @@
 
 #include <stdio.h>
 #include "stats.h"
+#include "platform.h"
 
 /* Size of the Data Set */
 #define SIZE (40)
@@ -49,17 +50,19 @@ void print_statistics(unsigned char *array, unsigned int length)
     mean = find_mean(array,length);
     max = find_maximum(array,length);
     min = find_minimum(array,length);
-    printf("\nMedian %d,\nMean %d,\nMaximun %d,\nMinimum  %d,\n",median,mean,max,min);
+    PRINTF("\nMedian %d,\nMean %d,\nMaximun %d,\nMinimum  %d,\n",median,mean,max,min);
     
 }
 
 void print_array(unsigned char *array, unsigned int length)
 {
-    printf("Array:");
-    for(unsigned int i = 0;i<length; i++)
-    {
-        printf("%d ",array[i]);
-    }
+   #indef VERBOSE
+        PRINTF("Array:");
+        for(unsigned int i = 0;i<length; i++)
+        {
+            PRINTF("%d ",array[i]);
+        }
+    #endif
 }
 
 void sort_array(unsigned char *array, unsigned int length)
