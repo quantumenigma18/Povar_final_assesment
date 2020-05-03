@@ -43,7 +43,7 @@ GFLAGS = -Wall -Werror -g -O0 -std=c99
  
 TARGET = c1m2
 
-ifeq ($PLATFORM),HOST)
+ifeq ($(PLATFORM),HOST)
 	# Compiler Flags and Defines for HOST
 	CC =gcc
 	LD = ld

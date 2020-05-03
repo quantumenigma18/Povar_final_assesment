@@ -9,7 +9,7 @@
 #
 #*****************************************************************************
 
-ifeq ($PLATFORM),HOST)
+ifeq ($(PLATFORM),HOST)
 	# Add your Source files to this variable
 	SOURCES = src/main.c \
 		src/memory.c \
