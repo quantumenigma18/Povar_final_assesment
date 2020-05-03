@@ -18,8 +18,12 @@
  * @date 04.05.2020
  *
  */
-#ifndef __STATS_H__
-#define __STATS_H__
+#include <stdint.h>
+#include <inttypes.h>
+#include <stdlib.h>
+
+#ifndef __DATA_H__
+#define __DATA_H__
 
 /* Add Your Declarations and Function Comments here */
 /**

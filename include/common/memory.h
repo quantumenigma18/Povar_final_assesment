@@ -15,10 +15,11 @@
  * This header file provides an abstraction of reading and
  * writing to memory via function calls. 
  *
- * @author Alex Fosdick
+ * @author Alex Fosick
  * @date April 1 2017
  *
  */
+#include <stdint.h>
 #ifndef __MEMORY_H__
 #define __MEMORY_H__
 
@@ -103,7 +104,7 @@ int32_t *reserve_words(size_t length);
  * @return pointer to memory
  */
 
-void free_words(int32_t * src);
+void free_words(uint32_t * src);
 
 /**
  * @brief Should free a dynamic memory allocation by providing the pointer src to the function

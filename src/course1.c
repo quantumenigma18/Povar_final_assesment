@@ -16,12 +16,12 @@
  * @date April 2, 2017
  *
  */
-
 #include <stdint.h>
-#include "course1.h"
-#include "platform.h"
-#include "memory.h"
-#include "data.h"
+#include <stdio.h>
+#include "course1.h" 
+#include "platform.h" 
+#include "memory.h"   
+#include "data.h"  
 #include "stats.h"
 
 int8_t test_data1() {
@@ -29,17 +29,19 @@ int8_t test_data1() {
   int32_t num = -4096;
   uint32_t digits;
   int32_t value;
-
   PRINTF("\ntest_data1();\n");
   ptr = (uint8_t*) reserve_words( DATA_SET_SIZE_W );
-
-  if (! ptr )
+   if (! ptr )
   {
     return TEST_ERROR;
   }
 
-  digits = my_itoa( num, ptr, BASE_16);   
-  value = my_atoi( ptr, digits, BASE_16);
+  digits = my_itoa( num, ptr,16);   //change 10 to BASE_16
+  PRINTF("Digits = %d",digits);
+
+  PRINTF("\n");
+
+  value = my_atoi( ptr, digits,16); // change 10 to BASE_16
   #ifdef VERBOSE
   PRINTF("  Initial number: %d\n", num);
   PRINTF("  Final Decimal number: %d\n", value);
@@ -67,8 +69,8 @@ int8_t test_data2() {
     return TEST_ERROR;
   }
 
-  digits = my_itoa( num, ptr, BASE_10);
-  value = my_atoi( ptr, digits, BASE_10);
+  digits = my_itoa( num, ptr, 10);
+  value = my_atoi( ptr, digits,10);
   #ifdef VERBOSE
   PRINTF("  Initial Decimal number: %d\n", num);
   PRINTF("  Final Decimal number: %d\n", value);
@@ -151,7 +153,7 @@ int8_t test_memmove2() {
   for (i = 0; i < TEST_MEMMOVE_LENGTH; i++)
   {
     if (set[i + 8] != i)
-    {
+    { 
       ret = TEST_ERROR;
     }
   }
@@ -338,7 +340,7 @@ void course1(void)
 
   for ( i = 0; i < TESTCOUNT; i++) 
   {
-    failed += results[i];
+	failed += results[i];
   }
 
   PRINTF("--------------------------------\n");

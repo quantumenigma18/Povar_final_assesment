@@ -20,13 +20,13 @@
  */
 
 
-
+#include <stdint.h>
+#include<stdio.h> 
 #include "data.h"
 #include "memory.h"
 
 uint8_t my_itoa(int32_t data, uint8_t * ptr, uint32_t base)
 {
-    int32_t adv;
     char no = 0;
     uint8_t i = 0,length =0;
     if(data == 0)
@@ -44,9 +44,9 @@ uint8_t my_itoa(int32_t data, uint8_t * ptr, uint32_t base)
     }
     do {
         *(ptr + i) = data%base;
-        i = ++i;
+        ++i;
         data = data/base;
-    }while( data != 0)
+    }while( data != 0);
     
     if(no == 1) *(ptr + i++) = '-';
     length = i;
@@ -64,7 +64,7 @@ int32_t my_atoi(uint8_t * ptr, uint8_t digits, uint32_t base)
     if(!ptr) return -1;
     while(i > 0) {
         data += *(ptr + i)*(base) ;
-        i = --i;
+         --i;
         base*= adv;
     }
     

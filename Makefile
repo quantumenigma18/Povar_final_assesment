@@ -35,6 +35,8 @@ include sources.mk
 
 # Platform Overrides
 PLATFORM = MSP432
+VERBOSE = DISABLE
+COURSE = COURSE
 
 #General Flags
 GFLAGS = -Wall -Werror -g -O0 -std=c99
@@ -50,7 +52,7 @@ ifeq ($PLATFORM),HOST)
 	CPPFLAGS = -DHOST
 else
 	# Architectures Specific Flags
-	LINKER_FILE = ../msp432p401r.lds
+	LINKER_FILE = msp432p401r.lds
 	CPU = cortex-m4
 	ARCH = armv7e-m
 	SPECS = nosys.specs
@@ -66,6 +68,13 @@ else
 
 	#Size Utility
 	SIZE = arm-none-eabi-size 
+endif
+ifeq ($(VERBOSE),ENABLE)
+CPPFLAGS += -DVERBOSE
+endif
+
+ifeq ($(COURSE),COURSE1)
+CPPFLAGS += -DCOURSE1
 endif
 
 PRES = $(SOURCES:.c=.i)

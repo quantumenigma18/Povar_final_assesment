@@ -28,35 +28,11 @@
 /* Size of the Data Set */
 #define SIZE (40)
 
-void main() {
-    
-    unsigned char test[SIZE] = { 34, 201, 190, 154,   8, 194,   2,   6,
-        114, 88,   45,  76, 123,  87,  25,  23,
-        200, 122, 150, 90,   92,  87, 177, 244,
-        201,   6,  12,  60,   8,   2,   5,  67,
-        7,  87, 250, 230,  99,   3, 100,  90};
-    
-    print_array(test,SIZE);
-    print_statistics(test,SIZE);
-    sort_array(test,SIZE);
-    print_array(test,SIZE);
-    
-}
 /* Add other Implementation File Code Here */
-void print_statistics(unsigned char *array, unsigned int length)
-{
-    unsigned char median,mean,max,min;
-    median = find_median(array,length);
-    mean = find_mean(array,length);
-    max = find_maximum(array,length);
-    min = find_minimum(array,length);
-    PRINTF("\nMedian %d,\nMean %d,\nMaximun %d,\nMinimum  %d,\n",median,mean,max,min);
-    
-}
 
 void print_array(unsigned char *array, unsigned int length)
 {
-   #indef VERBOSE
+   #ifdef VERBOSE
         PRINTF("Array:");
         for(unsigned int i = 0;i<length; i++)
         {
@@ -118,6 +94,15 @@ int find_minimum(unsigned char *array, unsigned int length)
 {
     sort_array(array,length);
     return array[length-1];
+    
+}
+void print_statistics(unsigned char *array, unsigned int length)
+{
+    //unsigned char median = find_median(array,length);
+    //unsigned char mean = find_mean(array,length);
+    //unsigned char max = find_maximum(array,length);
+    //unsigned char min = find_minimum(array,length);
+    PRINTF("\nMedian %d,\nMean %d,\nMaximun %d,\nMinimum  %d,\n",find_median(array,length),find_mean(array,length),find_maximum(array,length),find_minimum(array,length));
     
 }
 
